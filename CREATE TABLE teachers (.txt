@@ -29,3 +29,11 @@ WHERE teacher_id = 105;
 SELECT name, salary
 FROM teachers
 WHERE salary = (SELECT MAX(salary) FROM teachers);
+
+SELECT department, COUNT(*) AS total_teachers
+FROM teachers
+GROUP BY department;
+
+SELECT name, experience
+FROM teachers
+ORDER BY experience DESC;
