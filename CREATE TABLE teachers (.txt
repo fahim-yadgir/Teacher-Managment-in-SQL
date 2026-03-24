@@ -37,3 +37,19 @@ GROUP BY department;
 SELECT name, experience
 FROM teachers
 ORDER BY experience DESC;
+
+
+ALTER TABLE teachers ADD bonus NUMBER(10,2);
+
+
+UPDATE teachers
+SET bonus = salary * 0.10;
+
+
+CREATE VIEW high_salary_teachers AS
+SELECT name, salary
+FROM teachers
+WHERE salary > 50000;
+
+
+SELECT * FROM high_salary_teachers;
