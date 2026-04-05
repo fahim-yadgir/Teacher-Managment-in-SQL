@@ -1,10 +1,12 @@
+create database Teacher;
+use Teacher;
 CREATE TABLE teachers (
-    teacher_id NUMBER PRIMARY KEY,
-    name VARCHAR2(100),
-    subject VARCHAR2(50),
-    salary NUMBER(10,2),
-    experience NUMBER,
-    department VARCHAR2(50)
+    teacher_id int PRIMARY KEY,
+    name varchar(100),
+    subject VARCHAR(50),
+    salary int,
+    experience int,
+    department varchar(50)
 );
 
 INSERT INTO teachers VALUES (101, 'Shadab Ahmed', 'Math', 50000, 5, 'Science');
@@ -39,9 +41,9 @@ FROM teachers
 ORDER BY experience DESC;
 
 
-ALTER TABLE teachers ADD bonus NUMBER(10,2);
+ALTER TABLE teachers ADD bonus int;
 
-
+SET SQL_SAFE_UPDATES = 1;
 UPDATE teachers
 SET bonus = salary * 0.10;
 
@@ -52,4 +54,19 @@ FROM teachers
 WHERE salary > 50000;
 
 
-SELECT * FROM high_salary_teachers;
+select name,salary
+from teachers
+order by SALARY DESC
+limit 3;
+
+update teachers
+set bonus = bonus + 5000
+where department = "Physics";
+
+select name,salary
+from teachers
+where salary > (select avg(salary)from teachers);
+
+select department,max(salary)
+from teachers
+group by department; 
