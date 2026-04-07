@@ -70,3 +70,14 @@ where salary > (select avg(salary)from teachers);
 select department,max(salary)
 from teachers
 group by department; 
+
+select name,salary
+from teachers
+order by salary desc
+limit 1 offset 2;
+
+select * from teachers;
+
+update teachers
+set bonus = bonus + 4000
+where teacher_id =102;
