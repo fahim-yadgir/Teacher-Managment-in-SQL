@@ -101,3 +101,5 @@ set salary = salary + bonus;
 select teacher_id,name
 from teachers
 where name like '%h%';
+
+SET SQL_SAFE_UPDATES = 0;
