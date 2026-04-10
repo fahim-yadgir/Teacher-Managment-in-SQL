@@ -81,3 +81,23 @@ select * from teachers;
 update teachers
 set bonus = bonus + 4000
 where teacher_id =102;
+
+select name,salary
+from teachers
+where salary = (select max(salary) from teachers
+				where salary < (select max(salary)from teachers));
+
+select name,salary
+from teachers
+order by salary desc
+limit 1 offset 1;
+
+select * from teachers;
+SET SQL_SAFE_UPDATES = 1;
+
+update teachers
+set salary = salary + bonus;
+
+select teacher_id,name
+from teachers
+where name like '%h%';
