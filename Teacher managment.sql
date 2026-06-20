@@ -103,3 +103,7 @@ from teachers
 where name like '%h%';
 
 SET SQL_SAFE_UPDATES = 0;
+
+select name , subject , department
+from teachers
+where experience >=5;
