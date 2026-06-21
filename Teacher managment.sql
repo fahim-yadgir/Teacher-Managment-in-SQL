@@ -107,3 +107,7 @@ SET SQL_SAFE_UPDATES = 0;
 select name , subject , department
 from teachers
 where experience >=5;
+
+select *,
+	sum(salary + bonus) over (order by teacher_id)as total_spends
+from teachers;
