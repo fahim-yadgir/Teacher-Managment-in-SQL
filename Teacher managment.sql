@@ -111,3 +111,10 @@ where experience >=5;
 select *,
 	sum(salary + bonus) over (order by teacher_id)as total_spends
 from teachers;
+
+alter table teachers
+add column Total_salary bigint default 0;
+
+update teachers
+set total_salary = salary + bonus;
+
